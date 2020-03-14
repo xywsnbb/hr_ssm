@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="hr.mapper.EngageAnswerMapper">
+  	<insert id="saveEngageAnswer" parameterType="EngageAnswer">
+  		insert into engage_answer 
+  		(
+  		ans_id,
+  		answer_number,
+  		exam_number,
+  		resume_id,
+  		interview_id,
+		human_name,
+		human_idcard,
+	    major_kind_id,
+	    major_kind_name,
+	    major_id,
+	    major_name,
+		test_time,
+	    use_time,
+	    total_point)
+	    
+  		values(
+  		#{ans_id},
+  		#{answer_number},
+  		#{exam_number},
+  		#{resume_id},
+  		#{interview_id},
+		#{human_name},
+		#{human_idcard},
+	    #{major_kind_id},
+	    #{major_kind_name},
+	    #{major_id},
+	    #{major_name},
+		#{test_time},
+	    #{use_time},
+	    #{total_point})
+  	</insert>
+  	
+  	<delete id="deleteEngageAnswerById" parameterType="_int">
+  		delete from engage_answer where ans_id = #{ans_id}
+  	</delete>
+  	
+  	<update id="updateEngageAnswerById" parameterType="EngageAnswer">
+  		update engage_answer set
+  			answer_number = #{answer_number},
+	  		exam_number = #{exam_number},
+	  		resume_id = #{resume_id},
+	  		interview_id = #{interview_id},
+			human_name = #{human_name},
+			human_idcard = #{human_idcard},
+		    major_kind_id = #{major_kind_id},
+		    major_kind_name = #{major_kind_name},
+		    major_id = #{major_id},
+		    major_name = #{major_name},
+			test_time = #{test_time},
+		    use_time = #{use_time},
+		    total_point = #{total_point}
+		    
+  			where ans_id = #{ans_id}
+  	</update>
+  	
+  	<select id="selectEngageAnswerById" parameterType="_int" resultType="EngageAnswer">
+  		select * from engage_answer where ans_id = #{ans_id}
+  	</select>
+  	
+  	<select id="selectAllEngageAnswer" resultType="EngageAnswer">
+  		select * from engage_answer
+  	</select>
+  </mapper>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="hr.mapper.Salary_standard_detailsMapper">
+  		<insert id="insertSalary_standard_details" parameterType="Salary_standard_details">
+  			insert into salary_standard_details(sdt_id,standard_id,standard_name,item_id,
+  			item_name,salary)
+  			values (#{sdt_id},#{standard_id},#{standard_name},#{item_id},
+  			#{item_name},#{salary})
+  		</insert>
+  		
+  		<update id="updateSalary_standard_details" parameterType="Salary_standard_details">
+  			update salary_standard_details set standard_id=#{standard_id},standard_name=#{standard_name},
+  			item_id=#{item_id},item_name=#{item_name},salary=#{salary}
+  			where sdt_id=#{sdt_id}
+  		</update>
+  		
+  		<select id="selectSalary_standard_detailsById" resultType="Salary_standard_details" parameterType="_int">
+  			select * from salary_standard_details where sdt_id = #{id}
+  		</select>
+  		
+  		<select id="getSalary_standard_details" resultType="Salary_standard_details">
+  			select * from salary_standard_details
+  		</select>
+  		
+  		<delete id="deleteSalary_standard_detailsById" parameterType="_int">
+  			delete from salary_standard_details where sdt_id = #{id}
+  		</delete>
+  		
+  </mapper>

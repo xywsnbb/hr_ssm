@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="hr.mapper.EngageInterviewMapper">
+ 	<insert id="saveEngageInterview" parameterType="EngageInterview">
+ 		insert into engage_interview( 
+				 	   ein_id,
+					   human_name,
+					   interview_amount,
+					   human_major_kind_id,
+					   human_major_kind_name,
+					   human_major_id,
+					   human_major_name,
+					   image_degree,
+					   native_language_degree,
+					   foreign_language_degree,
+					   response_speed_degree,
+					   EQ_degree,
+					   IQ_degree,
+					   multi_quality_degree,
+					   register,
+					   checker,
+					   registe_time,
+					   check_time,
+					   resume_id,
+					   result,
+					   interview_comment,
+					   check_comment,
+					   interview_status,
+					   check_status
+	 			 )
+ 		     values(
+ 				       #{ein_id},
+					   #{human_name},
+					   #{interview_amount},
+					   #{human_major_kind_id},
+					   #{human_major_kind_name},
+					   #{human_major_id},
+					   #{human_major_name},
+					   #{image_degree},
+					   #{native_language_degree},
+					   #{foreign_language_degree},
+					   #{response_speed_degree},
+					   #{EQ_degree},
+					   #{IQ_degree},
+					   #{multi_quality_degree},
+					   #{register},
+					   #{checker},
+					   #{registe_time},
+					   #{check_time},
+					   #{resume_id},
+					   #{result},
+					   #{interview_comment},
+					   #{check_comment},
+					   #{interview_status},
+					   #{check_status}
+ 					)
+ 	</insert>
+ 	
+ 	<delete id="deleteEngageInterviewById" parameterType="_int">
+ 		delete * from engage_interview where ein_id = #{ein_id} 
+ 	</delete>
+ 	
+ 	<update id="updateEngageInterviewById" parameterType="EngageInterview">
+ 		update engage_interview set 
+ 					  ein_id = #{ein_id},
+					  human_name = #{human_name},
+					  interview_amount = #{interview_amount},
+					  human_major_kind_id = #{human_major_kind_id},
+					  human_major_kind_name = #{human_major_kind_name},
+					  human_major_id = #{human_major_id},
+					  human_major_name = #{human_major_name},
+					  image_degree = #{image_degree},
+					  native_language_degree = #{native_language_degree},
+					  foreign_language_degree = #{foreign_language_degree},
+					  response_speed_degree = #{response_speed_degree},
+					  EQ_degree = #{EQ_degree},
+					  IQ_degree = #{IQ_degree},
+					  multi_quality_degree = #{multi_quality_degree},
+					  register = #{register},
+					  checker = #{checker},
+					  registe_time = #{registe_time},
+					  check_time = #{check_time},
+					  resume_id = #{resume_id},
+					  result = #{result},
+					  interview_comment = #{interview_comment},
+					  check_comment = #{check_comment},
+					  interview_status = #{interview_status},
+					  check_status = #{check_status}
+ 		where ein_id = #{ein_id} 
+ 	</update>
+ 	
+ 	<select id="selectEngageInterviewById" parameterType="_int" resultType="EngageInterview">
+ 		select * from engage_interview where ein_id = #{ein_id} 
+ 	</select>
+ 	
+ 	<select id="selectAllEngageInterview" resultType="EngageInterview">
+ 		select * from engage_interview
+ 	</select>
+ </mapper>

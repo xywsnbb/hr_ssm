@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="hr.mapper.Config_primary_keyMapper">
+  		<insert id="insertConfig_primary_key" parameterType="Config_primary_key">
+  			insert into config_primary_key(prk_id,primary_key_table,primary_key,key_name,primary_key_status)
+  			values (#{prk_id},#{primary_key_table},#{primary_key},#{key_name},#{primary_key_status})
+  		</insert>
+  		
+  		<update id="updateConfig_primary_key" parameterType="Config_primary_key">
+  			update config_primary_key set primary_key_table=#{primary_key_table},primary_key=#{primary_key},
+  			key_name=#{key_name},primary_key_status=#{primary_key_status}
+  			where prk_id=#{prk_id}
+  		</update>
+  		
+  		<select id="selectConfig_primary_keyById" resultType="Config_primary_key" parameterType="_int">
+  			select * from config_primary_key where prk_id = #{id}
+  		</select>
+  		
+  		<select id="getConfig_primary_key" resultType="Config_primary_key">
+  			select * from config_primary_key
+  		</select>
+  		
+  		<delete id="deleteConfig_primary_keyById" parameterType="_int">
+  			delete from config_primary_key where prk_id = #{id}
+  		</delete>
+  		
+  </mapper>

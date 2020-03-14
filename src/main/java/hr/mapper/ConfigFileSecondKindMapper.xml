@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hr.mapper.ConfigFileSecondKindMapper">
+	<insert id="insertConfigFileSecondKind" parameterType="ConfigFileSecondKind">
+		insert into config_file_second_kind(fsk_id,first_kind_id,first_kind_name,second_kind_id,second_kind_name,
+			second_salary_id,second_sale_id) values 
+		(#{fsk_id},#{first_kind_id},#{first_kind_name},#{second_kind_id},#{second_kind_name},#{second_salary_id},#{second_sale_id})
+	</insert>
+	
+	<delete id="deleteConfigFileSecondKindById" parameterType="_int">
+		delete from config_file_second_kind where fsk_id = #{id}
+	</delete>
+	
+	<update id="updateConfigFileThirdKind">
+		update config_file_second_kind set 
+		first_kind_id = #{first_kind_id},
+		first_kind_name = #{first_kind_name},
+		second_kind_id = #{second_kind_id},
+		second_kind_name = #{second_kind_name},
+		second_salary_id = #{second_salary_id},
+		second_sale_id = #{second_sale_id} 
+		where fsk_id = #{fsk_id}
+	</update>
+	
+	<select id="selectConfigFileSecondKindById" resultType="ConfigFileSecondKind" parameterType="_int">
+		select * from config_file_second_kind where fsk_id = #{id}
+	</select>
+	
+	<select id="selectConfigFileSecondKind" resultType="ConfigFileSecondKind">
+		select * from config_file_second_kind
+	</select>
+	
+	<select id="selectConfigFileSecondKindMaxId" resultType="_int">
+		select max(fsk_id) from config_file_second_kind
+	</select>
+</mapper>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hr.mapper.ConfigMajorKindMapper">
+	<insert id="insertConfigMajorKind" parameterType="ConfigMajorKind">
+		insert into config_major_kind(mfk_id,major_kind_id,major_kind_name) values (#{mfk_id},#{major_kind_id},#{major_kind_name})
+	</insert>
+	
+	<delete id="deleteConfigMajorKind" parameterType="_int">
+		delete from config_major_kind where mfk_id = #{id}
+	</delete>
+	
+	<update id="updateConfigMajorKind">
+		update config_major_kind set 
+		major_kind_id = #{major_kind_id},
+		major_kind_name = #{major_kind_name} 
+		where mfk_id = #{mfk_id}
+	</update>
+	
+	<select id="selectConfigMajorKindById" resultType="ConfigMajorKind" parameterType="_int">
+		select * from config_major_kind where mfk_id = #{id}
+	</select>
+	
+	<select id="selectConfigMajorKind" resultType="ConfigMajorKind">
+		select * from config_major_kind
+	</select>
+	
+	<select id="selectConfigMajorKindMaxId" resultType="_int">
+		select max(mfk_id) from config_major_kind
+	</select>
+</mapper>

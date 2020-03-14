@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="hr.mapper.EngageAnswerDetailsMapper">
+  	<insert id="saveEngageAnswerDetails" parameterType="EngageAnswerDetails">
+  		insert into engage_answer_details(and_id,answer_number,subject_id,answer)
+  		values(#{and_id},#{answer_number},#{subject_id},#{answer})
+  	</insert>
+  	
+  	<delete id="deleteEngageAnswerDetailsById" parameterType="_int">
+  		delete from engage_answer_details where and_id = #{and_id}
+  	</delete>
+  	
+  	<update id="updateEngageAnswerDetailsById">
+  		update engage_answer_details set
+  		answer_number = #{answer_number},
+  		subject_id = #{subject_id},
+  		answer = #{answer}
+  		where and_id = #{and_id}
+  	</update>
+  	
+  	<select id="selectEngageAnswerDetailsById" parameterType="_int" resultType="EngageAnswerDetails">
+  		select * from engage_answer_details where and_id = #{and_id} 
+  	</select>
+  	
+  	<select id="selectAllEngageAnswerDetails" resultType="EngageAnswerDetails">
+  		select * from engage_answer_details
+  	</select>
+  </mapper>

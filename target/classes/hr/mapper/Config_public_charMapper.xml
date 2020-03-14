@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="hr.mapper.Config_public_charMapper">
+  		<insert id="insertConfig_public_char" parameterType="Config_public_char">
+  			insert into config_public_char(pbc_id,attribute_kind,attribute_name) 
+  			values (#{pbc_id},#{attribute_kind},#{attribute_name})
+  		</insert>
+  		
+  		<update id="updateConfig_public_char" parameterType="Config_public_char">
+  			update config_public_char set attribute_kind=#{attribute_kind},attribute_name=#{attribute_name}
+  			where pbc_id=#{pbc_id}
+  		</update>
+  		
+  		<select id="selectConfig_public_charById" resultType="Config_public_char" parameterType="_int">
+  			select * from config_public_char where pbc_id = #{id}
+  		</select>
+  		
+  		<select id="getConfig_public_char" resultType="Config_public_char">
+  			select * from config_public_char
+  		</select>
+  		
+  		<delete id="deleteConfig_public_charById" parameterType="_int">
+  			delete from config_public_char where pbc_id = #{id}
+  		</delete>
+  		
+  		<select id="selectConfig_public_charMaxId" resultType="_int">
+			select max(pbc_id) from config_public_char
+		</select>
+		
+  		<select id="selectConfig_public_charKind" resultType="Config_public_char">
+			select * from config_public_char WHERE attribute_kind = '职称'
+		</select>
+		
+  		<select id="selectNotConfig_public_charKind" resultType="Config_public_char">
+			select * from config_public_char WHERE NOT attribute_kind = '职称' AND NOT 
+			attribute_kind = '薪酬设置'
+		</select>
+  		
+  </mapper>

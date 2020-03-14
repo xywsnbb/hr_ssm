@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hr.mapper.ConfigFileFirstKindMapper">
+	<insert id="insertConfigFileFirstKind" parameterType="ConfigFileFirstKind">
+		insert into config_file_first_kind(ffk_id,first_kind_id,first_kind_name,first_kind_salary_id,first_kind_sale_id) values 
+		(#{ffk_id},#{first_kind_id},#{first_kind_name},#{first_kind_salary_id},#{first_kind_sale_id})
+	</insert>
+	
+	<delete id="deleteConfigFileFirstKindById" parameterType="_int">
+		delete from config_file_first_kind where ffk_id = #{id}
+	</delete>
+	
+	<update id="updateConfigFileFirstKind">
+		update config_file_first_kind set 
+		first_kind_id = #{first_kind_id},first_kind_name = #{first_kind_name},
+		first_kind_salary_id = #{first_kind_salary_id},first_kind_sale_id = #{first_kind_sale_id} 
+		where ffk_id = #{ffk_id}
+	</update>
+	
+	<select id="selectConfigFileFirstKindById" resultType="ConfigFileFirstKind" parameterType="_int">
+		select * from config_file_first_kind where ffk_id = #{id}
+	</select>
+	
+	<select id="selectConfigFileFirstKind" resultType="ConfigFileFirstKind">
+		select * from config_file_first_kind
+	</select>
+	
+	<select id="selectConfigFileFirstKindMaxId" resultType="_int">
+		select max(ffk_id) from config_file_first_kind
+	</select>
+</mapper>

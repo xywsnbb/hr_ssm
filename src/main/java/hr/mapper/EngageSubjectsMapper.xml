@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="hr.mapper.EngageSubjectsMapper">
+ 	<insert id="saveEngageSubjects" parameterType="EngageSubjects">
+ 		insert into engage_subjects(
+ 				  sub_id,  		
+				  first_kind_id,		
+				  first_kind_name, 
+				  second_kind_id,		 
+				  second_kind_name, 
+				  register,		 
+				  regist_time,					 
+				  derivation,		 
+				  content,						 
+				  key_a,			 
+				  key_b,						 
+				  key_c,					 
+				  key_d,					 
+				  key_e,						 
+				  correct_key,  
+				  changer,		 
+				  change_time
+ 				)values(
+ 				  #{sub_id},  		
+				  #{first_kind_id},		
+				  #{first_kind_name}, 
+				  #{second_kind_id},		 
+				  #{second_kind_name}, 
+				  #{register},		 
+				  #{regist_time},					 
+				  #{derivation},		 
+				  #{content},						 
+				  #{key_a},			 
+				  #{key_b},						 
+				  #{key_c},					 
+				  #{key_d},					 
+				  #{key_e},						 
+				  #{correct_key},  
+				  #{changer},		 
+				  #{change_time}
+ 				)
+ 	</insert>
+ 	
+ 	<delete id="deleteEngageSubjectsById" parameterType="_int">
+ 		delete from engage_subjects where sub_id = #{sub_id}
+ 	</delete>
+ 	
+ 	<update id="updateEngageSubjectsById" parameterType="EngageSubjects">
+ 		update engage_subjects set 
+ 		 		  first_kind_id = #{first_kind_id},		
+				  first_kind_name = #{first_kind_name}, 
+				  second_kind_id = #{second_kind_id},		 
+				  second_kind_name = #{second_kind_name}, 
+				  register = #{register},		 
+				  regist_time = #{regist_time},					 
+				  derivation = #{derivation},		 
+				  content = #{content},						 
+				  key_a = #{key_a},			 
+				  key_b = #{key_b},						 
+				  key_c = #{key_c},					 
+				  key_d = #{key_d},					 
+				  key_e = #{key_e},						 
+				  correct_key = #{correct_key},  
+				  changer = #{changer},		 
+				  change_time = #{change_time}
+			where sub_id = #{sub_id}
+ 	</update>
+ 	
+ 	<select id="selectEngageSubjectsById" parameterType="_int" resultType="EngageSubjects">
+ 		select * from engage_subjects where sub_id = #{sub_id}
+ 	</select>
+ 	
+ 	<select id="selectAllEngageSubjects" resultType="EngageSubjects">
+ 		select * from engage_subjects
+ 	</select>
+ </mapper>

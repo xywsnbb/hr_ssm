@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hr.mapper.HumanFileDigMapper">
+	<sql id="HumanFileDigColunm">
+		hfd_id as hfd_id,
+		human_id as human_id,
+		first_kind_id as first_kind_id,
+		first_kind_name as first_kind_name,
+		second_kind_id as second_kind_id,
+		second_kind_name as second_kind_name,
+		third_kind_id as third_kind_id,
+		third_kind_name as third_kind_name,
+		human_name as human_name,
+		human_address as human_address,
+		human_postcode as human_postcode,
+		human_pro_designation as human_pro_designation,
+		human_major_kind_id as human_major_kind_id,
+		human_major_kind_name as human_major_kind_name,
+		human_major_id as human_major_id,
+		hunma_major_name as hunma_major_name,
+		human_telephone as human_telephone,
+		human_mobilephone as human_mobilephone,
+		human_bank as human_bank,
+		human_account as human_account,
+		human_qq as human_qq,
+		human_email as human_email,
+		human_hobby as human_hobby,
+		human_speciality as human_speciality,
+		human_sex as human_sex,
+		human_religion as human_religion,
+		human_party as human_party,
+		human_nationality as human_nationality,
+		human_race as human_race,
+		human_birthday as human_birthday,
+		human_birthplace as human_birthplace,
+		human_age as human_age,
+		human_educated_degree as human_educated_degree,
+		human_educated_years as human_educated_years,
+		human_educated_major as human_educated_major,
+		human_society_security_id as human_society_security_id,
+		human_id_card as human_id_card,
+		remark as remark,
+		salary_standard_id as salary_standard_id,
+		salary_standard_name as salary_standard_name,
+		salary_sum as salary_sum,
+		demand_salaray_sum as demand_salaray_sum,
+		paid_salary_sum as paid_salary_sum,
+		major_change_amount as major_change_amount,
+		bonus_amount as bonus_amount,
+		training_amount as training_amount,
+		file_chang_amount as file_chang_amount,
+		human_histroy_records as human_histroy_records,
+		human_family_membership as human_family_membership,
+		human_picture as human_picture,
+		attachment_name as attachment_name,
+		check_status as check_status,
+		register as register,
+		checker as checker,
+		changer as changer,
+		regist_time as regist_time,
+		check_time as check_time,
+		change_time as change_time,
+		lastly_change_time as lastly_change_time,
+		delete_time as delete_time,
+		recovery_time as recovery_time,
+		human_file_status as human_file_status
+	</sql>
+
+	<insert id="insertHumanFileDig" parameterType="HumanFileDig">
+		insert into human_file_dig(hfd_id,human_id,first_kind_id,first_kind_name,second_kind_id,second_kind_name,third_kind_id,
+			third_kind_name,human_name,human_address,human_postcode,human_pro_designation,human_major_kind_id,human_major_kind_name,
+			human_major_id,hunma_major_name,human_telephone,human_mobilephone,human_bank,human_account,human_qq,human_email,
+			human_hobby,human_speciality,human_sex,human_religion,human_party,human_nationality,human_race,human_birthday,
+			human_birthplace,human_age,human_educated_degree,human_educated_years,human_educated_major,human_society_security_id,
+			human_id_card,remark,salary_standard_id,salary_standard_name,salary_sum,demand_salaray_sum,paid_salary_sum,major_change_amount,
+			bonus_amount,training_amount,file_chang_amount,human_histroy_records,human_family_membership,human_picture,attachment_name,
+			check_status,register,checker,changer,regist_time,check_time,change_time,lastly_change_time,delete_time,recovery_time,human_file_status) 
+		values 
+		(#{hfd_id},#{human_id},#{first_kind_id},#{first_kind_name},#{second_kind_id},#{second_kind_name},#{third_kind_id},
+		#{third_kind_name},#{human_name},#{human_address},#{human_postcode},#{human_pro_designation},#{human_major_kind_id},#{human_major_kind_name},
+		#{human_major_id},#{hunma_major_name},#{human_telephone},#{human_mobilephone},#{human_bank},#{human_account},#{human_qq},#{human_email},
+		#{human_hobby},#{human_speciality},#{human_sex},#{human_religion},#{human_party},#{human_nationality},#{human_race},#{human_birthday},
+		#{human_birthplace},#{human_age},#{human_educated_degree},#{human_educated_years},#{human_educated_major},#{human_society_security_id},
+		#{human_id_card},#{remark},#{salary_standard_id},#{salary_standard_name},#{salary_sum},#{demand_salaray_sum},#{paid_salary_sum},#{major_change_amount},
+		#{bonus_amount},#{training_amount},#{file_chang_amount},#{human_histroy_records},#{human_family_membership},#{human_picture},#{attachment_name},
+		#{check_status},#{register},#{checker},#{changer},#{regist_time},#{check_time},#{change_time},#{lastly_change_time},#{delete_time},#{recovery_time},#{human_file_status})
+	</insert>
+	
+	<delete id="deleteHumanFileDigById">
+		delete from human_file_dig where hfd_id = #{id}
+	</delete>
+	
+	<update id="updateHumanFileDigById" parameterType="HumanFileDig">
+		update human_file_dig set 
+		human_id = #{human_id},
+		first_kind_id = #{first_kind_id},
+		first_kind_name = #{first_kind_name},
+		second_kind_id = #{second_kind_id},
+		second_kind_name = #{second_kind_name},
+		third_kind_id = #{third_kind_id},
+		third_kind_name = #{third_kind_name},
+		human_name = #{human_name},
+		human_address = #{human_address},
+		human_postcode = #{human_postcode},
+		human_pro_designation = #{human_pro_designation},
+		human_major_kind_id = #{human_major_kind_id},
+		human_major_kind_name = #{human_major_kind_name},
+		human_major_id = #{human_major_id},
+		hunma_major_name = #{hunma_major_name},
+		human_telephone = #{human_telephone},
+		human_mobilephone = #{human_mobilephone},
+		human_bank = #{human_bank},
+		human_account = #{human_account},
+		human_qq = #{human_qq},
+		human_email = #{human_email},
+		human_hobby = #{human_hobby},
+		human_speciality = #{human_speciality},
+		human_sex = #{human_sex},
+		human_religion = #{human_religion},
+		human_party = #{human_party},
+		human_nationality = #{human_nationality},
+		human_race = #{human_race},
+		human_birthday = #{human_birthday},
+		human_birthplace = #{human_birthplace},
+		human_age = #{human_age},
+		human_educated_degree = #{human_educated_degree},
+		human_educated_years = #{human_educated_years},
+		human_educated_major = #{human_educated_major},
+		human_society_security_id = #{human_society_security_id},
+		human_id_card = #{human_id_card},
+		remark = #{remark},
+		salary_standard_id = #{salary_standard_id},
+		salary_standard_name = #{salary_standard_name},
+		salary_sum = #{salary_sum},
+		demand_salaray_sum = #{demand_salaray_sum},
+		paid_salary_sum = #{paid_salary_sum},
+		major_change_amount = #{major_change_amount},
+		bonus_amount = #{bonus_amount},
+		training_amount = #{training_amount},
+		file_chang_amount = #{file_chang_amount},
+		human_histroy_records = #{human_histroy_records},
+		human_family_membership = #{human_family_membership},
+		human_picture = #{human_picture},
+		attachment_name = #{attachment_name},
+		check_status = #{check_status},
+		register = #{register},
+		checker = #{checker},
+		changer = #{changer},
+		regist_time = #{regist_time},
+		check_time = #{check_time},
+		change_time = #{change_time},
+		lastly_change_time = #{lastly_change_time},
+		delete_time = #{delete_time},
+		recovery_time = #{recovery_time},
+		human_file_status = #{human_file_status} 
+		where hfd_id = #{hfd_id}
+	</update>
+
+	<select id="selectHumanFileDigById" parameterType="_int" resultType="HumanFileDig">
+		select 
+		<include refid="HumanFileDigColunm"></include>
+		from human_file_dig where hfd_id = #{id}
+	</select>
+	
+	<select id="selectHumanFileDig" resultType="HumanFileDig">
+		select 
+			<include refid="HumanFileDigColunm"></include>
+		from human_file_dig
+	</select>
+	
+</mapper>

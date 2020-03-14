@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="hr.mapper.Engage_major_releaseMapper">
+  		<insert id="insertEngage_major_release" parameterType="Engage_major_release">
+  			insert into engage_major_release(mre_id,first_kind_id,first_kind_name,second_kind_id,
+  			second_kind_name,third_kind_id,third_kind_name,major_kind_id,major_kind_name,
+  			major_id,major_name,human_amount,engage_type,deadline,register,changer,regist_time,change_time,major_describe,engage_required)
+  			values (#{mre_id},#{first_kind_id},#{first_kind_name},#{second_kind_id},
+  			#{second_kind_name},#{third_kind_id},#{third_kind_name},#{major_kind_id},#{major_kind_name},
+  			#{major_id},#{major_name},#{human_amount},#{engage_type},#{deadline},#{register},#{changer},
+  			#{regist_time},#{change_time},#{major_describe},#{engage_required})
+  		</insert>
+  		
+  		<update id="updateEngage_major_release" parameterType="Engage_major_release">
+  			update engage_major_release set first_kind_id=#{first_kind_id},first_kind_name=#{first_kind_name},second_kind_id=#{second_kind_id},second_kind_name=#{second_kind_name},
+  			third_kind_id=#{third_kind_id},third_kind_name=#{third_kind_name},major_kind_id=#{major_kind_id},
+  			major_kind_name=#{major_kind_name},major_id=#{major_id},major_name=#{major_name},
+  			human_amount=#{human_amount},engage_type=#{engage_type},deadline=#{deadline},register=#{register},
+  			changer=#{changer},regist_time=#{regist_time},change_time=#{change_time},major_describe=#{major_describe},engage_required=#{engage_required}
+  			where mre_id=#{mre_id}
+  		</update>
+  		
+  		<select id="selectEngage_major_releaseById" resultType="Engage_major_release" parameterType="_int">
+  			select * from engage_major_release where mre_id = #{id}
+  		</select>
+  		
+  		<select id="getEngage_major_release" resultType="Engage_major_release">
+  			select * from engage_major_release
+  		</select>
+  		
+  		<delete id="deleteEngage_major_releaseById" parameterType="_int">
+  			delete from engage_major_release where mre_id = #{id}
+  		</delete>
+  		
+  </mapper>

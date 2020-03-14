@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="hr.mapper.Salary_grantMapper">
+  		<insert id="insertSalary_grant" parameterType="Salary_grant">
+  			insert into salary_grant(sgr_id,salary_grant_id,salary_standard_id,first_kind_id,first_kind_name,
+  			second_kind_id,second_kind_name,third_kind_id,third_kind_name,human_amount,
+  			salary_standard_sum,salary_paid_sum,register,checker,check_status,regist_time,check_time)
+  			values (#{sgr_id},#{salary_grant_id},#{salary_standard_id},#{first_kind_id},#{first_kind_name},
+  			#{second_kind_id},#{second_kind_name},#{third_kind_id},#{third_kind_name},#{human_amount},
+  			#{salary_standard_sum},#{salary_paid_sum},#{register},#{checker},#{check_status},#{regist_time},#{check_time})
+  		</insert>
+  		
+  		<update id="updateSalary_grant" parameterType="Salary_grant">
+  			update salary_grant set salary_grant_id=#{salary_grant_id},salary_standard_id=#{salary_standard_id},first_kind_id=#{first_kind_id},
+  			first_kind_name=#{first_kind_name},second_kind_id=#{second_kind_id},second_kind_name=#{second_kind_name},
+  			third_kind_id=#{third_kind_id},third_kind_name=#{third_kind_name},human_amount=#{human_amount},
+  			salary_standard_sum=#{salary_standard_sum},salary_paid_sum=#{salary_paid_sum},register=#{register},
+  			checker=#{checker},check_status=#{check_status},regist_time=#{regist_time},check_time=#{check_time}
+  			where sgr_id=#{sgr_id}
+  		</update>
+  		
+  		<select id="selectSalary_grantById" resultType="Salary_grant" parameterType="_int">
+  			select * from salary_grant where sgr_id = #{id}
+  		</select>
+  		
+  		<select id="getSalary_grant" resultType="Salary_grant">
+  			select * from salary_grant
+  		</select>
+  		
+  		<delete id="deleteSalary_grantById" parameterType="_int">
+  			delete from salary_grant where sgr_id = #{id}
+  		</delete>
+  		
+  </mapper>

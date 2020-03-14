@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="hr.mapper.ConfigQuestionSecondKindMapper">
+  
+  	<insert id="saveQuestionSecondKind" parameterType="ConfigQuestionSecondKind">
+  		insert into config_question_second_kind(qsk_id,first_kind_id,first_kind_name,second_kind_id,second_kind_name)
+  		values(#{qsk_id},#{first_kind_id},#{first_kind_name},#{second_kind_id},#{second_kind_name})
+  	</insert>
+  	<update id="updateQuestionSecondKind" parameterType="ConfigQuestionSecondKind">
+  		update config_question_second_kind set 
+  					first_kind_id = #{first_kind_id},
+  					first_kind_name = #{first_kind_name},
+  					second_kind_id = #{second_kind_id},
+  					second_kind_name = #{second_kind_name}
+  					where qsk_id = #{qsk_id}
+  	</update>
+  	<select id="selectAllConfigQuestionSecondKind" resultType="ConfigQuestionSecondKind">
+  		select * from config_question_second_kind
+  	</select>
+  	
+  	<select id="selectConfigQuestionSecondKindById" parameterType="_int" resultType="ConfigQuestionSecondKind">
+  		select * from config_question_second_kind where qsk_id = #{qsk_id}
+  	</select>
+  	
+  	<select id="selectMaxId" resultType="int">
+  		select max(qsk_id) from config_question_second_kind
+  	</select>
+  	
+  	<select id="linkageSelect" resultType="ConfigQuestionSecondKind">
+  		select first_kind_id,first_kind_name,GROUP_CONCAT(second_kind_id) as second_kind_id,GROUP_CONCAT(second_kind_name) as second_kind_name from config_question_second_kind
+		GROUP BY first_kind_id
+  	</select>
+  	
+  	<delete id="deleteConfigQuestionSecondKindById" parameterType="_int">
+  		delete from config_question_second_kind where qsk_id = #{qsk_id}
+  	</delete>
+  	
+  	</mapper>

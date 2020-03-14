@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hr.mapper.ConfigMajorMapper">
+	<insert id="insertConfigMajor" parameterType="ConfigMajor">
+		insert into config_major(mak_id,major_kind_id,major_kind_name,major_id,major_name,test_amount) 
+		values 
+		(#{mak_id},#{major_kind_id},#{major_kind_name},#{major_id},#{major_name},#{test_amount})
+	</insert>
+	
+	<delete id="deleteConfigMajorById" parameterType="_int">
+		delete from config_major where mak_id = #{id}
+	</delete>
+	
+	<update id="updateConfigMajor">
+		update config_major set 
+		major_kind_id = #{major_kind_id},
+		major_kind_name = #{major_kind_name},
+		major_id = #{major_id},
+		major_name = #{major_name},
+		test_amount = #{test_amount} 
+		where mak_id = #{mak_id}
+	</update>
+	
+	<select id="selectConfigMajorById" resultType="ConfigMajor" parameterType="_int">
+		select * from config_major where mak_id = #{id}
+	</select>
+	
+	<select id="selectConfigMajor" resultType="ConfigMajor">
+		select * from config_major
+	</select>
+	
+	<select id="selectConfigMajorMaxId" resultType="_int">
+		select max(mak_id) from config_major
+	</select>
+</mapper>

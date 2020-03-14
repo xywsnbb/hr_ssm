@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="hr.mapper.Salary_standardMapper">
+  		<insert id="insertSalary_standard" parameterType="Salary_standard">
+  			insert into salary_standard(ssd_id,standard_id,standard_name,designer,
+  			register,checker,changer,regist_time,check_time,change_time,salary_sum,check_status,change_status,check_comment,remark)
+  			values (#{ssd_id},#{standard_id},#{standard_name},#{designer},
+  			#{register},#{checker},#{changer},#{regist_time},#{check_time},#{change_time},#{salary_sum},#{check_status},#{change_status},#{check_comment},#{remark})
+  		</insert>
+  		
+  		<update id="updateSalary_standard" parameterType="Salary_standard">
+  			update salary_standard set standard_id=#{standard_id},standard_name=#{standard_name},
+  			designer=#{designer},register=#{register},checker=#{checker},
+  			changer=#{changer},regist_time=#{regist_time},check_time=#{check_time},change_time=#{change_time}
+  			,salary_sum=#{salary_sum},check_status=#{check_status},change_status=#{change_status},
+  			check_comment=#{check_comment},remark=#{remark}
+  			where ssd_id=#{ssd_id}
+  		</update>
+  		
+  		<select id="selectSalary_standard" resultType="Salary_standard" parameterType="_int">
+  			select * from salary_standard where ssd_id = #{id}
+  		</select>
+  		
+  		<select id="getSalary_standard" resultType="Salary_standard">
+  			select * from salary_standard
+  		</select>
+  		
+  		<delete id="deleteSalary_standardById" parameterType="_int">
+  			delete from salary_standard where ssd_id = #{id}
+  		</delete>
+  		
+  </mapper>

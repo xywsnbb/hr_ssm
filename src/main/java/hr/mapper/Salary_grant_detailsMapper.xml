@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="hr.mapper.Salary_grant_detailsMapper">
+  		<insert id="insertSalary_grant_details" parameterType="Salary_grant_details">
+  			insert into salary_grant_details(grd_id,salary_grant_id,human_id,human_name,
+  			bouns_sum,sale_sum,deduct_sum,salary_standard_sum,salary_paid_sum)
+  			values (#{grd_id},#{salary_grant_id},#{human_id},#{human_name},
+  			#{bouns_sum},#{sale_sum},#{deduct_sum},#{salary_standard_sum},#{salary_paid_sum})
+  		</insert>
+  		
+  		<update id="updateSalary_grant_details" parameterType="Salary_grant_details">
+  			update salary_grant_details set salary_grant_id=#{salary_grant_id},human_id=#{human_id},
+  			bouns_sum=#{bouns_sum},sale_sum=#{sale_sum},deduct_sum=#{deduct_sum},
+  			salary_standard_sum=#{salary_standard_sum},salary_paid_sum=#{salary_paid_sum}
+  			where grd_id=#{grd_id}
+  		</update>
+  		
+  		<select id="selectSalary_grant_detailsById" resultType="Salary_grant_details" parameterType="_int">
+  			select * from salary_grant_details where grd_id = #{id}
+  		</select>
+  		
+  		<select id="getSalary_grant_details" resultType="Salary_grant_details">
+  			select * from salary_grant_details
+  		</select>
+  		
+  		<delete id="deleteSalary_grant_detailsById" parameterType="_int">
+  			delete from salary_grant_details where grd_id = #{id}
+  		</delete>
+  		
+  </mapper>
